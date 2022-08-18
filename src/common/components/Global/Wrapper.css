@@ -1,0 +1,14 @@
+@import url(../global.css);
+
+.Wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.Wrapper[color='primary'] button[class*='wrapper'], .textfield__wrapper::after {
+  background-color: var(--primary);
+}
+
+.Wrapper[color='secondary'] button[class*='wrapper'], .textfield__wrapper::after {
+  background-color: var(--secondary);
+}
