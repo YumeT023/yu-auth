@@ -14,7 +14,7 @@ type PayLoadType = {
 
 export function Sign() {
   const [sign, setSign] = useState<'in' | 'up'>('in');
-  const { logIn, signup } = useAuth();
+  const { logIn, signup, setLoading } = useAuth();
   const [error, setError] = useState<AuthError | null>();
   const navigate = useNavigate();
   const [payload, setPayload] = useState<PayLoadType>({
@@ -38,6 +38,7 @@ export function Sign() {
     e.stopPropagation();
 
     const { email, password } = payload;
+    setLoading(true);
     if (sign === 'in') {
       await logIn(email, password)
         .then(() => {
@@ -51,6 +52,7 @@ export function Sign() {
         })
         .catch((authError) => setError(authError));
     }
+    setLoading(false);
   };
 
   return (
