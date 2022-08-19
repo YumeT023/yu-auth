@@ -8,6 +8,7 @@ type authProviderFn = {
 
 export interface AuthProviderContext {
   user: User;
+  setLoading(value: boolean): void;
   logOut(): Promise<void>;
   logIn: authProviderFn;
   signup: authProviderFn;

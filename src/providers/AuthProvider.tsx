@@ -12,9 +12,11 @@ import { auth } from '../conf/firebase';
 import { ComponentWithChild } from '../types/ComponentWithChild';
 import { User } from '../types/User';
 import { AuthContext } from './AuthContext';
+import { Loading } from '../Pages/Loading';
 
 export function AuthProvider({ children }: ComponentWithChild) {
   const [user, setUser] = useState<User>(null);
+  const [loading, setLoading] = useState(false);
 
   const signup = (email: string, password: string) => (
     createUserWithEmailAndPassword(auth, email, password)
@@ -42,6 +44,7 @@ export function AuthProvider({ children }: ComponentWithChild) {
 
   const userAuth = useMemo(() => ({
     user,
+    setLoading,
     signup,
     logIn,
     logOut,
@@ -56,6 +59,9 @@ export function AuthProvider({ children }: ComponentWithChild) {
           className: 'xeno-toast',
         }}
       />
+
+      <Loading className={loading ? 'show' : 'opacity-fade-out'} />
+
       {children}
     </AuthContext.Provider>
   );
