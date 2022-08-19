@@ -1,6 +1,7 @@
-import { AuthProvider as IAuthProvider, UserCredential } from "firebase/auth";
-import { User } from "./User";
+import { AuthProvider as IAuthProvider, UserCredential } from 'firebase/auth';
+import { User } from './User';
 
+// @ts-nocheck
 type authProviderFn = {
   (email: string, password: string): Promise<UserCredential>;
 }

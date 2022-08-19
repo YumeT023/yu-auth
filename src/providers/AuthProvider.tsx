@@ -7,6 +7,7 @@ import {
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
+import { Toaster } from 'react-hot-toast';
 import { auth } from '../conf/firebase';
 import { ComponentWithChild } from '../types/ComponentWithChild';
 import { User } from '../types/User';
@@ -49,6 +50,12 @@ export function AuthProvider({ children }: ComponentWithChild) {
 
   return (
     <AuthContext.Provider value={userAuth}>
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          className: 'xeno-toast',
+        }}
+      />
       {children}
     </AuthContext.Provider>
   );
