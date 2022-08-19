@@ -1,3 +1,3 @@
-import { User as FirebaseUser } from "firebase/auth";
+import { User as FirebaseUser } from 'firebase/auth';
 
 export type User = FirebaseUser | null;
