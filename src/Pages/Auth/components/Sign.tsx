@@ -42,13 +42,13 @@ export function Sign() {
     if (sign === 'in') {
       await logIn(email, password)
         .then(() => {
-          navigate('/home');
+          navigate('/');
         })
         .catch((authError) => setError(authError));
     } else {
       await signup(email, password)
         .then(() => {
-          navigate('/home');
+          navigate('/');
         })
         .catch((authError) => setError(authError));
     }
