@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { useAuth } from '../../utils/hooks';
 import { onAuthStateChanged } from 'firebase/auth';
-import '../assets/css/auth.css';
 import { FormWrapper } from './components/FormWrapper';
 import { Sign } from './components/Sign';
 import { auth } from '../../conf/firebase';
+import { Header } from '../Home/components/Header';
+import '../assets/css/auth.css';
 
 export function Auth() {
   // const { user } = useAuth();
@@ -21,6 +21,11 @@ export function Auth() {
 
   return (
     <div className="h-100 main__form">
+      <Header>
+        <button className="home__header__btn">
+          yu-auth
+        </button>
+      </Header>
       <FormWrapper>
         <Sign />
       </FormWrapper>
