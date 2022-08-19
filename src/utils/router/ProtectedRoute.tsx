@@ -1,14 +1,20 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { onAuthStateChanged } from 'firebase/auth';
 import { ComponentWithChild } from '../../types/ComponentWithChild';
-import { useAuth } from '../hooks';
+import { auth } from '../../conf/firebase';
 
 export function ProtectedRoute({ children }: ComponentWithChild) {
-  const { user } = useAuth();
+  const navigate = useNavigate();
 
-  if (!user) {
-    return <Navigate to="/auth" />;
-  }
+  // use of onAuthStateChanged instead of useAuth for speed rendering
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      if (!currentUser) {
+        navigate('/auth');
+      }
+    });
+  }, []);
 
   return (
     <>
