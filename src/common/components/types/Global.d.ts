@@ -1,4 +1,3 @@
-import React from 'react';
 import { ComponentWithChild } from '../../../types/ComponentWithChild';
 
 /*= === COLORS === */

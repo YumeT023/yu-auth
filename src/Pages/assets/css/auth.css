@@ -1,0 +1,161 @@
+:root {
+  --width: 80%;
+  --feat-bg: rgb(4,83,78);
+  --feat-bg-alt:  rgb(166, 177, 118);
+}
+
+/*==== CLASSES CSS ====*/
+.main__form {
+  display: flex;
+  align-items: center;
+  background-color: #151515;
+}
+
+.form__wrapper {
+  background-image: url(../image/form-background2.jpg);
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+  display: grid;
+  height: 90%;
+  width: 90%;
+  border-radius: 4px;
+  padding: 1.5rem 1rem;
+  grid-template-columns: 0.7fr 1fr;
+}
+
+.form__social {
+  margin-block: 0.8rem;
+  padding-block: 0.5rem;
+  border-radius: 0.2rem;
+  display: grid;
+  text-align: center;
+  color: white;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+}
+
+.form__social__button {
+  color: #151515;
+  width: 50%;
+  border-radius: 0.4rem;
+  padding: 1.3rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  margin: 0 auto;
+  border: 1px solid rgb(0, 0, 0, 0.07);
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  font-size: 1.2rem;
+}
+
+.auth__form {
+  height: 100%;
+  width: 85%;
+  margin: 0 auto;
+  background-color: whitesmoke;
+  padding: 1.3rem;
+  border-radius: 4px;
+  position: relative;
+}
+
+.form__wrapper > div h4 {
+  margin: 0;
+  padding: 0.5rem;
+  width: 8rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgb(0, 0, 0, 0.05);
+  background-color: white;
+}
+
+.form__social__button:hover {
+  border: 0;
+  box-shadow: 0 0 4px var(--feat-bg-alt);
+}
+
+.auth__form > p {
+  text-align: center;
+  padding: 1.6rem 0 0;
+  font-size: 13px;
+}
+
+.auth__form::after {
+  background-color: var(--feat-bg);
+  box-shadow: var(--feat-bshadow);
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 10%;
+  width: 5%;
+  border-radius: 0 10rem 10rem 1rem;
+}
+
+.auth__form::before {
+  content: '';
+  position: absolute;
+  top: 0.5rem;
+  right: 0.4rem;
+  border-radius: 10rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--feat-bg);
+  box-shadow: 5px -2px 8px var(--feat-bg-alt);
+}
+
+/*==== FEATURE CSS ====*/
+.xeno-bg {
+  background-color: var(--feat-bg) !important;
+  border-radius: 4px !important;
+}
+
+.xeno-toast {
+  background-color: var(--feat-bg) !important;
+  color: white !important;
+}
+
+.xeno-bg:hover {
+  background-color: rgb(4, 73, 69) !important;
+}
+
+.xeno::after {
+  background-color: var(--feat-bg) !important;
+}
+
+.no-default-btn-style > button {
+  color: var(--feat-bg);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.no-default-btn-style > button:hover {
+  text-decoration: underline;
+}
+
+/*==== MEDIA QUERIE ====*/
+@media all and (max-width: 648px) {
+  .form__wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.15fr 1fr;
+  }
+
+  .form__wrapper {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 420px) {
+  .auth__form {
+    width: 100%;
+  }
+  .form__wrapper {
+    padding-inline: 0;
+  }
+}
